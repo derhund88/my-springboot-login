@@ -5,7 +5,7 @@ metadata:
   labels:
     app: my-springboot-login
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: my-springboot-login
@@ -21,25 +21,25 @@ spec:
         - containerPort: 8080
         resources:
           requests:
-            cpu: "1000m"
+            cpu: "250m"
             memory: "1024Mi"
           limits:
-            cpu: "2000m"
+            cpu: "500m"
             memory: "2048Mi"
         readinessProbe:
           httpGet:
-            path: /
+            path: /login
             port: 8080
-          initialDelaySeconds: 20
+          initialDelaySeconds: 40
           periodSeconds: 10
-          timeoutSeconds: 5
-          failureThreshold: 6
+          timeoutSeconds: 20
+          failureThreshold: 20
         livenessProbe:
           httpGet:
-            path: /
+            path: /login
             port: 8080
           initialDelaySeconds: 60
           periodSeconds: 20
-          timeoutSeconds: 5
-          failureThreshold: 6
+          timeoutSeconds: 40
+          failureThreshold: 40
         imagePullPolicy: Always
