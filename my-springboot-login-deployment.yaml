@@ -28,7 +28,7 @@ spec:
             memory: "2048Mi"
         readinessProbe:
           httpGet:
-            path: /login
+            path: /actuator/health
             port: 8080
           initialDelaySeconds: 40
           periodSeconds: 10
@@ -36,7 +36,7 @@ spec:
           failureThreshold: 20
         livenessProbe:
           httpGet:
-            path: /login
+            path: /actuator/health
             port: 8080
           initialDelaySeconds: 60
           periodSeconds: 20
