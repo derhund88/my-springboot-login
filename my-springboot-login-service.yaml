@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-springboot-login-service
+  namespace: default
+spec:
+  selector:
+    app: my-springboot-login
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 31110
+  type: NodePort
