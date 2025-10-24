@@ -2,6 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        /* styling form sederhana */
+        form { width: 320px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; }
+        label { display: inline-block; width: 80px; }
+        input { width: 200px; padding: 5px; margin: 5px 0; }
+        button { width: 100%; padding: 8px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        p[th\\:if] { text-align: center; color: red; }
+    </style>
 </head>
 <body>
 <h2>Login</h2>
@@ -15,5 +25,10 @@
     <button type="submit">Login</button>
 </form>
 <p th:if="${error}" th:text="${error}"></p>
+
+<!-- sisipkan footer fragment -->
+<div th:replace="fragments/footer :: siteFooter"></div>
+
 </body>
 </html>
+
